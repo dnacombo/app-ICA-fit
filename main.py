@@ -16,4 +16,4 @@ ica= mne.preprocessing.ICA(n_components=config['n_components'], noise_cov=None,
 
 ica.fit(raw)
 
-ica.save('out_dir/ica.fif')
+ica.save('out_dir/ica.fif',overwrite=True)
