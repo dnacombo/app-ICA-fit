@@ -5,7 +5,8 @@
 
 Brainlife App to compute ICA object using `mne.preprocessing.ICA` function.
 
-## app-events documentation
+## app-ICA-params
+
 
 1) Input file is:
     * `meg/fif` meg data file
