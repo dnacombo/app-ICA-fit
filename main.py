@@ -30,3 +30,7 @@ ica.save('out_dir/ica.fif',overwrite=True)
 plt.figure(1)
 ica.plot_components()
 plt.savefig(os.path.join('out_figs','ica.png'))
+
+plt.figure(2)
+ica.plot_sources(raw)
+plt.savefig(os.path.join('out_figs','sources.png'))
