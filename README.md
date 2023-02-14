@@ -11,8 +11,21 @@ Brainlife App to compute ICA object using `mne.preprocessing.ICA` function.
 
 1) Input file is:
     * `meg/fif` meg data file
+    
+2) Input parameters:
 
-2) Ouput files are:
+
+    * `n_components` Number of principal components (from the pre-whitening PCA step) that are passed to the ICA algorithm during fitting.
+        
+    * `method` The ICA method to use in the fit method. Use the fit_params argument to set additional parameters. Specifically, if you want Extended   Infomax, set method='infomax' and fit_params=dict(extended=True) (this also works for method='picard'). Defaults to 'fastica'. 
+    
+    
+    * `max_iter` Maximum number of iterations during fit. If 'auto', it will set maximum iterations to 1000 for 'fastica' and to 500 for 'infomax' or 'picard'. The actual number of iterations it took ICA.fit() to complete will be stored in the n_iter_ attribute.
+
+    
+    * `allow_ref_meg` Allow ICA on MEG reference channels. Defaults to False.
+
+3) Ouput files are:
     * `ica/fif` ica object file
     * a plot of the ICA components
    
