@@ -1,6 +1,12 @@
+# this app is used to run ICA on raw data
+# it first sets up the ICA object and then fits it on the raw data
+# it then saves the ICA object and plots the components and sources
+
+
 import os
 import mne
 import json
+import helper
 
 import matplotlib.pyplot as plt
 
@@ -12,7 +18,7 @@ import matplotlib.pyplot as plt
 
 # Load brainlife config.json
 with open('config.json','r') as config_f:
-    config = json.load(config_f)
+    config = helper.convert_parameters_to_None(json.load(config_f))
 
 # == LOAD DATA ==
 fname = config['fif']
