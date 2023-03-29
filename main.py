@@ -10,23 +10,18 @@ import helper
 
 import matplotlib.pyplot as plt
 
-#workaround for -- _tkinter.TclError: invalid command name ".!canvas"
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-
 
 # Load brainlife config.json
 with open('config.json','r') as config_f:
     config = helper.convert_parameters_to_None(json.load(config_f))
 
 # == LOAD DATA ==
-fname = config['fif']
+fname = config['mne']
 raw = mne.io.read_raw_fif(fname, verbose=False)
 
-ica= mne.preprocessing.ICA(n_components=config['n_components'], noise_cov=None,
-                      random_state=None, method=config['method'],
-                      fit_params=None, max_iter=config['max_iter'],
+ica= mne.preprocessing.ICA(n_components=config['n_components'], noise_cov=config['noise_cov'],
+                      random_state=config['random_state'], method=config['method'],
+                      fit_params=config['fit_params'], max_iter=config['max_iter'],
                       allow_ref_meg=config['allow_ref_meg'])
 
 ica.fit(raw)
