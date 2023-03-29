@@ -10,6 +10,10 @@ import helper
 
 import matplotlib.pyplot as plt
 
+#workaround for -- _tkinter.TclError: invalid command name ".!canvas"
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 # Load brainlife config.json
 with open('config.json','r') as config_f:
@@ -32,8 +36,9 @@ ica.save('out_dir/ica.fif',overwrite=True)
 
 plt.figure(1)
 ica.plot_components()
-plt.savefig(os.path.join('out_figs','ica.png'))
+plt.savefig(os.path.join('out_figs','components_topo.png'))
+plt.close()
 
 plt.figure(2)
 ica.plot_sources(raw)
-plt.savefig(os.path.join('out_figs','sources.png'))
+plt.savefig(os.path.join('out_figs','components_timecourse.png'))
