@@ -1,8 +1,10 @@
 {
-  "fif": "C:/Users/saeed/mne_data/MNE-sample-data/MEG/sample/sample_audvis_filt-0-40_raw.fif",
-  "n_components":15,
+  "mne": "/network/lustre/iss02/cenir/analyse/meeg/BRAINLIFE/datasets/ds000117/sub-01/ses-meg/meg/sub-01_ses-meg_task-facerecognition_run-01_meg.fif",
+  "n_components":30,
   "method":"fastica",
   "max_iter":"auto",
-  "allow_ref_meg":false
+  "allow_ref_meg":false,
+  "noise_cov":"",
+  "random_state":""
 }
 
