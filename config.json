@@ -8,6 +8,7 @@
   "random_state":"", 
   "fit_params":"",
   "l_freq":1.0,
-  "h_freq":""
+  "h_freq":80.0,
+  "picks_to_plot":""
 }
 
