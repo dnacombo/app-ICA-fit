@@ -17,7 +17,9 @@ with open('config.json','r') as config_f:
 
 # == LOAD DATA ==
 fname = config['mne']
-raw = mne.io.read_raw_fif(fname, verbose=False)
+raw = mne.io.read_raw_fif(fname, preload=True)
+if config['l_freq'] is not None:
+    raw = raw.filter(l_freq=config['l_freq'], h_freq=config['h_freq'])
 
 ica= mne.preprocessing.ICA(n_components=config['n_components'], noise_cov=config['noise_cov'],
                       random_state=config['random_state'], method=config['method'],
