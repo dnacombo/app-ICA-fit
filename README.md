@@ -1,12 +1,10 @@
-# ICA parameters
+# ICA initialize and fit
 
 
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.530-blue.svg)](https://doi.org/10.25663/brainlife.app.530)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.675-blue.svg)](https://doi.org/10.25663/brainlife.app.675)
 
-Brainlife App to compute ICA object using `mne.preprocessing.ICA` function.
-
-## app-ICA-params
+Brainlife App to compute ICA object using `mne.preprocessing.ICA` and `ica.fit()`.
 
 
 1) Input file is:
@@ -28,13 +26,14 @@ Brainlife App to compute ICA object using `mne.preprocessing.ICA` function.
 3) Ouput files are:
     * `ica/fif` ica object file
     * a plot of the ICA components
+    * a plot of the ICA sources
    
 
 ## Authors
 - Saeed ZAHRAN(saeedzahranutc@gmail.com)
+- Maximilien Chaumon(maximilien.chaumon@icm-institute.org)
 
 ## Citations
-We kindly ask that you cite the following articles when publishing papers and code using this code. 
 
 *- brainlife.io Publishing and Apps:*
 
@@ -54,5 +53,5 @@ brainlife.io is publicly funded and for the sustainability of the project it is 
 [![NIH-NIBIB-R01EB030896](https://img.shields.io/badge/NIH_NIBIB-R01EB030896-green.svg)](https://grantome.com/grant/NIH/R01-EB030896-01)
 
 
-#### MIT Copyright (c) 2021 brainlife.io The University of Texas at Austin and Indiana University
+#### MIT Copyright (c) 2023 brainlife.io The University of Texas at Austin and Indiana University
 
