@@ -61,6 +61,9 @@ ecg_evoked = create_ecg_epochs(raw, ch_name = config['ecg_ch']).average()
 eog_indices, eog_scores = ica.find_bads_eog(raw, ch_name = config['eog_ch'])
 ecg_indices, ecg_scores = ica.find_bads_ecg(raw, ch_name = config['ecg_ch'])
 
+# combine eog_indices and ecg_indices into one list
+ica.exclude = list(set(eog_indices + ecg_indices))
+
 report = mne.Report(title='ICA')
 report.add_ica(ica, 'Fitted ICA', inst = raw, eog_evoked = eog_evoked, ecg_evoked = ecg_evoked,
                ecg_scores = ecg_scores, eog_scores = eog_scores)
