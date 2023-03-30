@@ -8,7 +8,7 @@ set -e
 
 # Make output directories
 mkdir -p out_dir
-
+mkdir -p out_report
 mkdir -p out_figs
 
 
