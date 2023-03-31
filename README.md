@@ -14,19 +14,20 @@ Brainlife App to compute ICA object using `mne.preprocessing.ICA` and `ica.fit()
 
 
     * `n_components` Number of principal components (from the pre-whitening PCA step) that are passed to the ICA algorithm during fitting.
-        
+    * `l_freq` Low frequency cut-off for (recommended) high-pass filtering before ICA. default is None (no high-pass filtering), but it is advisable to high-pass filter the data for best ICA decomposition.        
     * `method` The ICA method to use in the fit method. Use the fit_params argument to set additional parameters. Specifically, if you want Extended   Infomax, set method='infomax' and fit_params=dict(extended=True) (this also works for method='picard'). Defaults to 'fastica'. 
-    
-    
+    * `noise_cov` Noise covariance used for pre-whitening. If None (default), channels are scaled to unit variance ("z-standardized") as a group by channel type prior to the whitening by PCA.
+    * `eog_ch` EOG channel to be used to detect EOG events, create epochs and overlay with the same epochs after rejecting ICA components highly correlated with the channel. If no channel is provided, MNE will try to guess, and issue an error if no EOG channel is found.
+    * `ecg_ch` ECG channel to be used to detect ECG events, create epochs and overlay with the same epochs after rejecting ICA components highly correlated with the channel. If no channel is provided, MNE will try to guess, and issue an error if no ECG channel is found.
+    * `random_state` A seed for the NumPy random number generator (RNG). If None (default), the seed will be obtained from the operating system (see RandomState for details), meaning it will most likely produce different output every time this function or method is run. To achieve reproducible results, pass a value here to explicitly initialize the RNG with a defined state.
     * `max_iter` Maximum number of iterations during fit. If 'auto', it will set maximum iterations to 1000 for 'fastica' and to 500 for 'infomax' or 'picard'. The actual number of iterations it took ICA.fit() to complete will be stored in the n_iter_ attribute.
-
-    
     * `allow_ref_meg` Allow ICA on MEG reference channels. Defaults to False.
+
 
 3) Ouput files are:
     * `ica/fif` ica object file
-    * a plot of the ICA components
-    * a plot of the ICA sources
+    * a plots of the ICA components' topographies and properties
+    * a html report showing the original and cleaned signal after eventual exclusion of components based on correlation with EOG and ECG channels.
    
 
 ## Authors
