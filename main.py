@@ -24,7 +24,7 @@ fname = config['mne']
 raw = mne.io.read_raw_fif(fname, preload=True)
 
 if config['l_freq'] is not None:
-    raw = raw.filter(l_freq=config['l_freq'], h_freq=config['h_freq'])
+    raw.filter(l_freq=config['l_freq'], h_freq=config['h_freq'])
 
 ica= ICA(n_components=config['n_components'], noise_cov=config['noise_cov'],
                       random_state=config['random_state'], method=config['method'],
@@ -65,7 +65,7 @@ ecg_indices, ecg_scores = ica.find_bads_ecg(raw, ch_name = config['ecg_ch'])
 ica.exclude = list(set(eog_indices + ecg_indices))
 
 report = mne.Report(title='ICA')
-report.add_ica(ica, 'Fitted ICA', inst = raw, eog_evoked = eog_evoked, ecg_evoked = ecg_evoked,
+report.add_ica(ica, 'ICA', inst = raw, eog_evoked = eog_evoked, ecg_evoked = ecg_evoked,
                ecg_scores = ecg_scores, eog_scores = eog_scores)
 
 report.save('out_report/report_ica.html', overwrite=True)
