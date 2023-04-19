@@ -11,8 +11,6 @@ Brainlife App to compute ICA object using `mne.preprocessing.ICA` and `ica.fit()
     * `meg/fif` meg data file
     
 2) Input parameters:
-
-
     * `n_components` Number of principal components (from the pre-whitening PCA step) that are passed to the ICA algorithm during fitting.
     * `l_freq` Low frequency cut-off for (recommended) high-pass filtering before ICA. default is None (no high-pass filtering), but it is advisable to high-pass filter the data for best ICA decomposition.        
     * `method` The ICA method to use in the fit method. Use the fit_params argument to set additional parameters. Specifically, if you want Extended   Infomax, set method='infomax' and fit_params=dict(extended=True) (this also works for method='picard'). Defaults to 'fastica'. 
